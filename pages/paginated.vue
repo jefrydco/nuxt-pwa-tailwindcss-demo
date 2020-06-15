@@ -1,10 +1,6 @@
 <template>
   <section id="paginated">
-    <transition-group
-      name="fade"
-      tag="div"
-      class="flex flex-wrap justify-center min-h-screen"
-    >
+    <div class="flex flex-wrap justify-center min-h-screen">
       <div
         v-for="item in list"
         :key="item.id"
@@ -12,7 +8,7 @@
       >
         <img :src="imageUrl(item.poster_path)" :alt="item.title" />
       </div>
-    </transition-group>
+    </div>
     <client-only>
       <infinite-loading :identifier="infiniteId" @infinite="infiniteHandler" />
     </client-only>
