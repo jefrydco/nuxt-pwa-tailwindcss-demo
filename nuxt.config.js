@@ -80,6 +80,10 @@ export default {
       {
         urlPattern: 'https://api.themoviedb.org/3/.*',
         handler: 'staleWhileRevalidate'
+      },
+      {
+        urlPattern: 'https://image.tmdb.org/.*',
+        handler: 'staleWhileRevalidate'
       }
     ]
   },
