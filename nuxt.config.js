@@ -8,9 +8,9 @@ export default {
   head: {
     titleTemplate(title) {
       if (title) {
-        return `${title} - Nuxt PWA TailwindCSS`
+        return `${title} - Nuxt PWA TailwindCSS Demo`
       }
-      return 'Nuxt PWA TailwindCSS'
+      return 'Nuxt PWA TailwindCSS Demo'
     }
   },
 
@@ -35,6 +35,9 @@ export default {
     // ]
   ],
 
+  // https://nuxtjs.org/api/configuration-watch/
+  watch: ['~/constants/**/*.js', '~/utils/**/*.js'],
+
   /*
    ** Nuxt.js dev-modules
    */
@@ -46,6 +49,48 @@ export default {
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss'
   ],
+
+  pwa: {
+    // https://pwa.nuxtjs.org/modules/meta.html
+    meta: {
+      name: 'Nuxt PWA TailwindCSS Demo',
+      description: 'Nuxt PWA TailwindCSS Demo',
+      lang: 'id',
+      ogHost: 'https://nuxt-pwa-tailwindcss-demo.netlify.app',
+      twitterCard: 'summary_large_image',
+      twitterSite: '@jefrydco',
+      twitterCreator: '@jefrydco'
+    },
+
+    // https://pwa.nuxtjs.org/modules/manifest.html
+    manifest: {
+      name: 'Nuxt PWA TailwindCSS Demo',
+      short_name: 'Nuxt PWA TailwindCSS Demo',
+      start_url: '/?utm_source=homescreen',
+      description: 'Nuxt PWA TailwindCSS Demo',
+      lang: 'id',
+      background_color: '#38b2ac',
+      theme_color: '#38b2ac'
+    }
+  },
+
+  // https://pwa.nuxtjs.org/modules/workbox.html
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: 'https://api.themoviedb.org/3/.*',
+        handler: 'staleWhileRevalidate'
+      }
+    ]
+  },
+
+  /**
+   * Server Middleware
+   * https://nuxtjs.org/api/configuration-servermiddleware
+   */
+  serverMiddleware: {
+    '/api': '~/api'
+  },
 
   /**
    * Tailwind CSS configuration
@@ -60,7 +105,7 @@ export default {
   },
 
   // https://nuxtjs.org/api/configuration-plugins
-  plugins: [],
+  plugins: ['~/plugins/components', '~/plugins/components.client'],
 
   // https://nuxtjs.org/api/configuration-css
   css: [],
@@ -68,7 +113,6 @@ export default {
   // https://nuxtjs.org/api/configuration-build
   build: {
     extractCSS: !isDev,
-    transpile: ['vee-validate/dist/rules'],
     postcss: {
       plugins: {
         'postcss-nested': {}

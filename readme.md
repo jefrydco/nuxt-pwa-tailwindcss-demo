@@ -1,14 +1,10 @@
-# Nuxt PWA TailwindCSS Starter
+# Nuxt PWA TailwindCSS Demo
 
-[![CircleCI Build Status](https://badgen.net/circleci/github/jefrydco/nuxt-pwa-tailwindcss-starter/master)](https://circleci.com/gh/jefrydco/nuxt-pwa-tailwindcss-starter)
-[![Azure Build Status](https://dev.azure.com/jefrydco/jefrydco/_apis/build/status/jefrydco.nuxt-pwa-tailwindcss-starter)](https://dev.azure.com/jefrydco/jefrydco/_build?definitionId=1)
-[![Coverage Status](https://badgen.net/codecov/c/github/jefrydco/nuxt-pwa-tailwindcss-starter/master)](https://codecov.io/gh/jefrydco/nuxt-pwa-tailwindcss-starter)
-
-> Nuxt.js + PWA + TailwindCSS starter project
+> Nuxt.js + PWA + TailwindCSS demo project
 
 ## Features
 
-This starter project includes official Nuxt.js modules for best PWA project:
+This demo project includes official Nuxt.js modules for best PWA project:
 
 - [Http](https://github.com/nuxt/http)
 - [Google-analytics](https://github.com/nuxt-community/analytics-module)

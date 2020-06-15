@@ -1,45 +1,43 @@
 <template>
-  <div>
-    <h1>Home</h1>
-    <validation-provider v-slot="{ errors }" rules="numeric">
-      <input
-        v-model="example"
-        name="Example"
-        placeholder="Example"
-        class="transition-colors duration-100 ease-in-out focus:outline-0 border border-transparent focus:bg-white focus:border-gray-300 placeholder-gray-600 rounded-lg bg-gray-200 py-2 px-4 block w-full appearance-none leading-normal ds-input"
-      />
-      <span class="error">{{ errors[0] }}</span>
-    </validation-provider>
-    <nuxt-link
-      to="/inspire"
-      class="px-2 -mx-2 py-1 transition duration-200 ease-in-out relative block text-teal-600 font-medium underline"
-    >
-      Inspire
-    </nuxt-link>
-  </div>
+  <section id="full">
+    <div class="flex flex-wrap">
+      <div
+        v-for="item in list"
+        :key="item.id"
+        class="w-1/2 flex justify-center"
+      >
+        <img :src="imageUrl(item.poster_path)" :alt="item.title" />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-import { ValidationProvider, extend } from 'vee-validate'
-import { numeric } from 'vee-validate/dist/rules'
+import { mapState } from 'vuex'
+import { BASE_IMAGE_URL } from '~/contants'
+import { buildStoreParam } from '~/utils'
+import {
+  NAMESPACE as FULL_NAMESPACE,
+  ACTION_TYPES as FULL_ACTION_TYPES
+} from '~/store/full'
 
 export default {
-  components: {
-    ValidationProvider
+  transition(to, from) {
+    if (!from) {
+      return 'slide-left'
+    }
+    return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
   },
-  data() {
-    return {
-      example: null
+  computed: {
+    ...mapState(FULL_NAMESPACE, ['list']),
+    imageUrl() {
+      return (path) => `${BASE_IMAGE_URL}w342${path}`
     }
   },
   mounted() {
-    extend('numeric', numeric)
+    this.$store.dispatch(
+      buildStoreParam(FULL_NAMESPACE, FULL_ACTION_TYPES.GET_LIST)
+    )
   }
 }
 </script>
-
-<style>
-.error {
-  @apply text-red-500;
-}
-</style>

@@ -6,6 +6,7 @@
 
 /* purgecss start ignore */
 html, body {
+  @apply overflow-x-hidden min-h-screen;
   scroll-behavior: smooth;
 }
 /* purgecss end ignore */

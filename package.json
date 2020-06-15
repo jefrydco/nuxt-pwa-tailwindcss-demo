@@ -1,8 +1,8 @@
 {
-  "name": "nuxt-pwa-tailwindcss",
+  "name": "nuxt-pwa-tailwindcss-demo",
   "version": "1.0.0",
   "private": true,
-  "description": "Nuxt.js + PWA + TailwindCSS starter project",
+  "description": "Nuxt.js + PWA + TailwindCSS demo project",
   "keywords": [
     "nuxt",
     "nuxt pwa",
@@ -17,10 +17,10 @@
     "tailwind",
     "tailwindcss"
   ],
-  "homepage": "https://github.com/jefrydco/nuxt-pwa-tailwindcss#readme",
+  "homepage": "https://github.com/jefrydco/nuxt-pwa-tailwindcss-demo#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jefrydco/nuxt-pwa-tailwindcss"
+    "url": "git+https://github.com/jefrydco/nuxt-pwa-tailwindcss-demo"
   },
   "license": "MIT",
   "author": {
@@ -45,7 +45,9 @@
     "@nuxtjs/sentry": "^4.1.2",
     "@nuxtjs/sitemap": "^2.3.1",
     "nuxt": "^2.12.2",
-    "vee-validate": "^3.3.3"
+    "query-string": "^6.13.1",
+    "vee-validate": "^3.3.3",
+    "vue-infinite-loading": "^2.4.5"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
