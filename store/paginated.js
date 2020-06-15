@@ -1,3 +1,5 @@
+import { API_URL } from '~/contants/api'
+
 export const NAMESPACE = 'paginated'
 
 export const MUTATION_TYPES = {
@@ -39,7 +41,7 @@ export const mutations = {
 export const actions = {
   async [ACTION_TYPES.GET_LIST]({ commit, state }) {
     try {
-      const list = await this.$http.$get(`/api?page=${state.page}`)
+      const list = await this.$http.$get(`${API_URL}?page=${state.page}`)
       if (state.page > 1) {
         await commit(MUTATION_TYPES.PUSH_LIST, list)
       } else {

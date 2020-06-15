@@ -47,7 +47,7 @@ export default {
       const list = await this.$store.dispatch(
         buildStoreParam(PAGINATED_NAMESPACE, PAGINATED_ACTION_TYPES.GET_LIST)
       )
-      if (list.length) {
+      if (Array.isArray(list) && list.length) {
         await this.$store.commit(
           buildStoreParam(
             PAGINATED_NAMESPACE,

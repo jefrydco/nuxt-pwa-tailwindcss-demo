@@ -1,3 +1,5 @@
+import { API_URL } from '~/contants/api'
+
 export const NAMESPACE = 'full'
 
 export const MUTATION_TYPES = {
@@ -21,7 +23,7 @@ export const mutations = {
 export const actions = {
   async [ACTION_TYPES.GET_LIST]({ commit, state }) {
     try {
-      const list = await this.$http.$get('/api?size=1000')
+      const list = await this.$http.$get(`${API_URL}?size=1000`)
       await commit(MUTATION_TYPES.SET_LIST, list)
       return list
     } catch (error) {}
