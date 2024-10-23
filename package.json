@@ -46,7 +46,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "nuxt": "^2.14.4",
     "query-string": "^6.13.1",
-    "vee-validate": "^3.3.9",
+    "vee-validate": "^4.14.4",
     "vue-infinite-loading": "^2.4.5"
   },
   "devDependencies": {
